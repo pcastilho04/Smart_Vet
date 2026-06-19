@@ -1,9 +1,11 @@
 services:
   - type: web
-    name: smart-vet-fastapi
+    name: mart-vet-api
     env: docker
     dockerfilePath: ./api/Dockerfile
     dockerContext: ./api
+    runtime: docker
+    plan: free
     autoDeploy: true
     healthCheckPath: /health
     envVars:
