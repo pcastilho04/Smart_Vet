@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: smart-vet-fastapi
+    env: docker
+    dockerfilePath: ./api/Dockerfile
+    dockerContext: ./api
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: HF_TOKEN
+        sync: false
+      - key: HF_SYMPTOMS_MODEL_ID
+        sync: false
+      - key: HF_IMAGE_MODEL_ID
+        sync: false
+      - key: API_TITLE
+        value: Smart VET API
+      - key: API_VERSION
+        value: 1.0.0
+      - key: API_ENV
+        value: prod
+      - key: ALLOWED_ORIGINS
+        sync: false
