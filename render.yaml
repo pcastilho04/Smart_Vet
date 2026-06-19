@@ -13,11 +13,23 @@ services:
         sync: false
       - key: HF_IMAGE_MODEL_ID
         sync: false
+      - key: HF_MODEL_REPO
+        sync: false
+      - key: HF_MODEL_FILENAME
+        value: best_model.pkl
       - key: API_TITLE
-        value: Smart VET API
+        value: Tech Challenge Animal Condition Inference API
+      - key: API_DESCRIPTION
+        value: API de inferencia que integra modelos Hugging Face para sintomas, imagem e modelo tabular de condicao animal.
       - key: API_VERSION
         value: 1.0.0
       - key: API_ENV
         value: prod
+      - key: TRIAGE_POSITIVE_LABELS
+        value: emergencia,urgente,grave
+      - key: TRIAGE_HIGH_THRESHOLD
+        value: "0.85"
+      - key: TRIAGE_MEDIUM_THRESHOLD
+        value: "0.60"
       - key: ALLOWED_ORIGINS
         sync: false

@@ -60,6 +60,11 @@ docker run --rm -p 8000:8000 --env-file ..\.env smart-vet-api
    - `HF_TOKEN`
    - `HF_SYMPTOMS_MODEL_ID`
    - `HF_IMAGE_MODEL_ID`
+  - `HF_MODEL_REPO`
+  - `HF_MODEL_FILENAME` (ex.: `best_model.pkl`)
+  - `TRIAGE_POSITIVE_LABELS`
+  - `TRIAGE_HIGH_THRESHOLD`
+  - `TRIAGE_MEDIUM_THRESHOLD`
    - `ALLOWED_ORIGINS` (inclua a URL do Streamlit Cloud)
 5. Aguarde o deploy e valide `GET /health`.
 
