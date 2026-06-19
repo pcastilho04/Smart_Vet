@@ -11,9 +11,11 @@ Projeto para inferencia de sintomas e imagens de pets usando modelos no Hugging 
 
 ## 2. Ambiente virtual (Windows PowerShell)
 
+Versao recomendada de Python: 3.11.9.
+
 ```powershell
 cd "c:\Projects\POS TECH\Smart_VET"
-python -m venv .venv
+py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
@@ -81,13 +83,14 @@ streamlit run app.py
 
 1. No Streamlit Cloud, clique em `New app`.
 2. Selecione o repositorio e a entrypoint `streamlit_app/app.py`.
-3. Em `Advanced settings` -> `Secrets`, adicione:
+3. O arquivo `runtime.txt` na raiz fixa Python 3.11.9 para evitar erro de build do Pillow/zlib.
+4. Em `Advanced settings` -> `Secrets`, adicione:
 
 ```toml
 FASTAPI_URL = "https://SEU-SERVICO-RENDER.onrender.com"
 ```
 
-4. Deploy e teste com sintomas + imagem.
+5. Deploy e teste com sintomas + imagem.
 
 ## 8. Endpoints principais da API
 
