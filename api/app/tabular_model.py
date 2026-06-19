@@ -79,5 +79,5 @@ class TabularModelService:
             prediction_binary=prediction,
             prediction_label="Yes - perigoso" if prediction == 1 else "No - nao perigoso",
             probability_yes=probability_yes,
-            input_used=features.iloc[0].to_dict(),
+            input_used={str(k): v for k, v in features.iloc[0].to_dict().items()},
         )
