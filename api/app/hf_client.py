@@ -11,6 +11,14 @@ class HuggingFaceService:
 
     @staticmethod
     def _normalize_predictions(result: Any) -> list[dict[str, Any]]:
+        def to_optional_float(value: Any) -> float | None:
+            if value is None:
+                return None
+            try:
+                return float(value)
+            except (TypeError, ValueError):
+                return None
+
         if result is None:
             return []
 
@@ -34,7 +42,7 @@ class HuggingFaceService:
                     normalized.append(
                         {
                             "label": str(item.get("label", "unknown")),
-                            "score": float(item.get("score")) if item.get("score") is not None else None,
+                            "score": to_optional_float(item.get("score")),
                             "raw": item,
                         }
                     )
@@ -45,7 +53,7 @@ class HuggingFaceService:
                     normalized.append(
                         {
                             "label": str(label),
-                            "score": float(score) if score is not None else None,
+                            "score": to_optional_float(score),
                             "raw": {"value": str(item)},
                         }
                     )
